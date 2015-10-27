@@ -95,10 +95,24 @@ nBack.Create.prototype = {
 	        if (cursors.left.isDown)
 	        {
 	            player.body.velocity.x = -200;
+	            
+	            if ( player.x < 10) {
+	            	
+	            	player.x = 10;
+	            	
+	            }	            
+	            console.log(player.position.x);
 	        }
 	        else if (cursors.right.isDown)
 	        {
 	            player.body.velocity.x = 200;
+	            
+	            if ( player.x > 800) {
+	            	
+	            	player.x = 790;
+	            	
+	            }	            
+	            console.log(player.position.x);
 	        }
 
 	        //  Firing?
@@ -235,7 +249,8 @@ function enemyHitsPlayer (player,bullet) {
         player.kill();
         enemyBullets.callAll('kill');
 
-        stateText.text=" this.game OVER \n Click to restart";
+        stateText.text=" G" +
+        		"GAME OVER \n Click to restart";
         stateText.visible = true;
 
         //the "click to restart" handler
